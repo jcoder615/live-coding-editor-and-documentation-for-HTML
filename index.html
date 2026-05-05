@@ -3,29 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Live Code Editor</title>
+  <title>Live Code Studio</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="app">
-    <header>
-      <h1>Live HTML Editor</h1>
-      <button id="save-sketch">Save Sketch</button>
-      <button id="download-code">Download Code</button>
-      <button id="show-docs">Documentation</button>
-    </header>
-    <main>
-      <section id="editor">
+  <nav>
+    <div class="brand">Live Code Studio</div>
+    <button id="toggle-preview">Toggle Live Preview</button>
+    <button id="theme-toggle">Light/Dark Mode</button>
+  </nav>
+  <div id="application-container">
+    <div id="editor-container">
+      <div class="tabs">
+        <button class="tab active" data-tab="html">HTML</button>
+        <button class="tab" data-tab="css">CSS</button>
+        <button class="tab" data-tab="js">JavaScript</button>
+      </div>
+      <div class="editor" id="html-editor">
         <textarea id="html-code" placeholder="Write your HTML here"></textarea>
+      </div>
+      <div class="editor hidden" id="css-editor">
         <textarea id="css-code" placeholder="Write your CSS here"></textarea>
+      </div>
+      <div class="editor hidden" id="js-editor">
         <textarea id="js-code" placeholder="Write your JavaScript here"></textarea>
-      </section>
-      <section id="preview">
-        <iframe id="live-preview"></iframe>
-      </section>
-    </main>
+      </div>
+      <div id="actions">
+        <button id="save-sketch">Save</button>
+        <button id="download-code">Download</button>
+      </div>
+    </div>
+    <div id="preview-container">
+      <iframe id="live-preview"></iframe>
+    </div>
   </div>
-
+  <footer>
+    <p>Version 1.0 | Created by Live Code Studio Team</p>
+  </footer>
   <script src="script.js"></script>
 </body>
 </html>

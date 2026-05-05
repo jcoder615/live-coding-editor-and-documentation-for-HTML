@@ -1,4 +1,4 @@
-// JavaScript for the Live Code Editor
+// JavaScript for the Live Code Studio
 
 document.addEventListener('DOMContentLoaded', () => {
   const htmlInput = document.getElementById('html-code');
@@ -7,12 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const previewFrame = document.getElementById('live-preview');
   const saveButton = document.getElementById('save-sketch');
   const downloadButton = document.getElementById('download-code');
+  const tabButtons = document.querySelectorAll('.tab');
+  const editors = document.querySelectorAll('.editor');
+  const themeToggleButton = document.getElementById('theme-toggle');
 
   const updatePreview = () => {
     const html = htmlInput.value;
     const css = `<style>${cssInput.value}</style>`;
     const js = `<script>${jsInput.value}</script>`;
-    
+
     const previewDoc = previewFrame.contentDocument;
     previewDoc.open();
     previewDoc.write(`${html}${css}${js}`);
@@ -50,6 +53,22 @@ document.addEventListener('DOMContentLoaded', () => {
     a.click();
     URL.revokeObjectURL(url);
   };
+
+  tabButtons.forEach((tab) => {
+    tab.addEventListener('click', (e) => {
+      const targetTab = e.target.getAttribute('data-tab');
+
+      tabButtons.forEach((tab) => tab.classList.remove('active'));
+      tab.classList.add('active');
+
+      editors.forEach((editor) => editor.classList.add('hidden'));
+      document.getElementById(`${targetTab}-editor`).classList.remove('hidden');
+    });
+  });
+
+  themeToggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+  });
 
   htmlInput.addEventListener('input', updatePreview);
   cssInput.addEventListener('input', updatePreview);

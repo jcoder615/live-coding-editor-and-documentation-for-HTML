@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Code Editor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Live HTML Editor</h1>
+      <button id="save-sketch">Save Sketch</button>
+      <button id="download-code">Download Code</button>
+      <button id="show-docs">Documentation</button>
+    </header>
+    <main>
+      <section id="editor">
+        <textarea id="html-code" placeholder="Write your HTML here"></textarea>
+        <textarea id="css-code" placeholder="Write your CSS here"></textarea>
+        <textarea id="js-code" placeholder="Write your JavaScript here"></textarea>
+      </section>
+      <section id="preview">
+        <iframe id="live-preview"></iframe>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
